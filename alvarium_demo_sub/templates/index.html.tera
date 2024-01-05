@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles.css">
+    <title>Sensor Data</title>
+</head>
+<body>
+<div class="container">
+    {% for sensor in sensors %}
+        <div class="card">
+            <button class="sensor-btn" id={{ sensor.id }}>Sensor ({{ sensor.id }})</button>
+            <!-- Add a canvas for the graph inside each sensor card -->
+            <div class="charts-container-{{ sensor.id }}">
+                <div class="graph-container graph-container-{{ sensor.id }}">
+                    <canvas id='graph-{{ sensor.id }}' class="sensor-graph" width="800" height="400" data-sensor-readings='{{ sensor.readings | json_encode() | safe }}'></canvas>
+                </div>
+                <div class="stats-container">
+                    <div>
+                        <h3>Readings</h3>
+                        <pre>  {{ sensor.total }}</pre>
+                    </div>
+                    <div>
+                        <h3>Confidence Score</h3>
+                        <pre>  {{ sensor.avgcf }}%</pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="readings">
+                {% for reading in sensor.readings %}
+                    <div class="reading reading-card">
+                        <button class="reading-btn">Reading {{ reading.id }}</button><br/>
+                        <pre>      Raw*: <a target="#" href="http://68.183.204.5:8082/dashboard/explorer/address/{{ reading.address }}">{{ reading.address }}</a></pre>
+                        <pre>      Value: {{ reading.value }} </pre>
+                        <pre>      Score: {{ reading.score }} </pre>
+                        <pre>      {{ reading.timestamp }} </pre>
+                        <div class="annotations">
+                            {% for annotation in reading.annotations %}
+                                <div class="annotation">
+                                    <button class="annotation-btn">Annotation ({{ annotation.kind }})</button>
+                                    <div class="annotation-details">
+                                        <div class="annotation-card">
+                                            <pre>   Id: {{ annotation.id }} </pre>
+                                            <pre>   Key: {{ annotation.key }}</pre>
+                                            <pre>   Hash: {{ annotation.hash }}</pre>
+                                            <pre>   Kind: {{ annotation.kind }}</pre>
+                                            <pre>   Is Satisfied: {{ annotation.isSatisfied }}</pre>
+                                            <pre>   Timestamp: {{ annotation.timestamp }} </pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+<script type="module" src="/static/script.js"></script>
+</body>
+</html>

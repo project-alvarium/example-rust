@@ -1,0 +1,25 @@
+[package]
+name = "alvarium_demo_pub"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+streams = { git = "https://github.com/Immutable-Futures/streams", branch = "develop", default-features = false, features = ["utangle-client", "did"] }
+# match crypto library with streams crypto
+iota-crypto = {version = "0.15.3", features = ["ed25519", "sha", "rand", "random"]}
+alvarium-annotator = { git = "https://github.com/DyrellC/alvarium-annotator" }
+alvarium-sdk-rust = { git = "https://github.com/DyrellC/alvarium-sdk-rust" }
+gethostname = "0.4.3"
+serde = "1.0.164"
+serde_json = "1.0.96"
+hex = "0.4.3"
+tokio = "1.28.2"
+rand = "0.8.5"
+hyper = { version = "0.14.26", features = ["server"] }
+lazy_static = "1.4.0"
+chrono = {version = "0.4.31", features = ["serde"] }
+thiserror = "1.0.40"
+log = "0.4.19"
+fern = "0.6.2"

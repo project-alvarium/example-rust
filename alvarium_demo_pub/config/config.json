@@ -1,0 +1,42 @@
+{
+  "annotators": [
+    "pki",
+    "source",
+    "tls",
+    "threshold"
+  ],
+  "hash": {
+    "type": "sha256"
+  },
+  "signature": {
+    "public": {
+      "type": "ed25519",
+      "path": "./config/keys/public.key"
+    },
+    "private": {
+      "type": "ed25519",
+      "path": "./config/keys/private.key"
+    }
+  },
+  "stream": {
+    "type": "iota",
+    "config": {
+      "provider": {
+        "host": "localhost",
+        "protocol": "http",
+        "port": 8900
+      },
+      "tangle": {
+        "host": "nodes.02.demia-testing-domain.com",
+        "protocol": "http",
+        "port": 14102
+      },
+      "encoding": "utf-8",
+      "topic": "Publisher Unique Topic",
+      "backup": {
+        "path": "sdk_user.bin",
+        "password": "annotator user backup"
+      }
+    }
+  }
+}
