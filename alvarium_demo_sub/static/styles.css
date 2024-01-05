@@ -1,0 +1,78 @@
+/* Global styles */
+body {
+    background-color: #333;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.card {
+    background-color: #444;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/* Button styles */
+button {
+    background-color: #555;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.readings {
+    display: none;
+    height: 500px;
+    margin-left: 20px;
+    overflow: auto;
+}
+
+/* Card expansion styles */
+.annotations {
+    display: none;
+    margin-left: 20px;
+}
+
+/* Night mode styles */
+.night-mode {
+    background-color: #111;
+    color: #ddd;
+}
+
+.annotation-card {
+    background-color: #444;
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 10px;
+    margin-bottom: 2px;
+}
+
+div[class^="charts-container-"] {
+    display: none;
+    width: 100%;
+}
+
+
+.graph-container {
+    display: flex;
+    width: 60%;
+}
+
+.stats-container {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    width: 40%;
+}
+
