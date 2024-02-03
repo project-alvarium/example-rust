@@ -7,9 +7,9 @@ the lifecycle of a data source annotating and being scored on the other end.
 ## Publishing
 The publisher package provides an example of an application that produces data from 2 mock sensors. 
 This data is generated randomly and produces an sdk instance that contains a set of core annotators 
-from the Alvarium rust [SDK](https://github.com/DyrellC/alvarium-sdk-rust). Additionally, it creates 
+from the Alvarium rust [SDK](https://github.com/project-alvarium/alvarium-sdk-rust). Additionally, it creates 
 a custom Annotator that checks if the values generated are within a specific threshold range. This 
-Annotator implements the [Annotator](https://github.com/DyrellC/alvarium-annotator/blob/main/src/annotator.rs#L3)
+Annotator implements the [Annotator](https://github.com/project-alvarium/alvarium-annotator/blob/main/src/annotator.rs#L3)
 trait, and is compatible with the sdk as a result. 
 
 Data is transported through the Demia Distributed Oracle Network (DON for short) which uses the IOTA 
